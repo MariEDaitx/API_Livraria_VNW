@@ -3,6 +3,11 @@ from flask import Flask, request, jsonify # type: ignore
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/")
+def livrosvnw():
+    return "Seja bem vindo!"
+
 def int_db():
     with sqlite3.connect("database.db") as conn:
         conn.execute(
@@ -18,12 +23,9 @@ def int_db():
         )
 int_db()
 
-@app.route("/")
-def livrosvnw():
-    return "Seja bem vindo!"
 
-@app.route("/Doar", methods=["POST"])
-def Doar():
+@app.route("/doar", methods=["POST"])
+def doar():
     dados = request.get_json()
     print(f"AQUI ESTARÃO TODOS OS LIVROS DOADOS {dados}")
 
