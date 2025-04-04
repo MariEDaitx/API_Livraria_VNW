@@ -62,7 +62,7 @@ def listar_livros():
                    "image_url": item[4]   
                 }
                 livros_formatados.append(dicionario_livros)
-                return jsonify(livros_formatados), 200
+        return jsonify(livros_formatados), 200
 
 if __name__ == "__main__":
    app.run(debug=True)
